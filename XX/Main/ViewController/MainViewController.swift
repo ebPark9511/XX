@@ -10,12 +10,15 @@ import UIKit
 
 class MainViewController: BaseViewController {
 
+    @IBOutlet weak var spendDetailMoveButton: UIButton!
+    @IBOutlet weak var addSpendMoveButton: UIButton!
+    
     var viewModel: MainViewModel?
 }
 
 extension MainViewController: ViewModelBindableType {
     func bindViewModel() {
         guard let viewModel = viewModel else { return }
-//        SignUpButton.rx.action = viewModel.requestSignUpAction()
+        spendDetailMoveButton.rx.action = viewModel.requestSpendDetailMoveAction()
     }
 }

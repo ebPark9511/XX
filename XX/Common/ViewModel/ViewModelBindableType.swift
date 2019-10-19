@@ -22,4 +22,6 @@ extension ViewModelBindableType where Self: UIViewController {
         
         bindViewModel()
     }
+    
+    
 }

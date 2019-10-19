@@ -9,6 +9,7 @@
 import UIKit
 enum MainScene {
     case main(MainViewModel)
+    case spendDetail(SpendDetailViewModel)
 //    case signIn(SignInViewModel)
 }
 
@@ -26,11 +27,16 @@ extension MainScene: SceneType {
             
             viewController.bind(viewModel: viewModel)
             return navigationController
-//        case  .signUp(let viewModel):
-//            guard var viewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController else { return UIViewController() }
-//
-//            viewController.bind(viewModel: viewModel)
-//            return viewController
+        case  .spendDetail(let viewModel):
+            guard var viewController = storyboard.instantiateViewController(withIdentifier: "SpendDetailViewController") as? SpendDetailViewController else {
+                return UIViewController()
+                
+            }
+
+            viewController.bind(viewModel: viewModel)
+            
+            
+            return viewController
         }
     }
     

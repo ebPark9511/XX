@@ -13,6 +13,11 @@ class SpendDetailViewController: BaseViewController {
     @IBOutlet weak var backButton: UIButton!
     
     var viewModel: SpendDetailViewModel?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 }
 
 extension SpendDetailViewController: ViewModelBindableType {

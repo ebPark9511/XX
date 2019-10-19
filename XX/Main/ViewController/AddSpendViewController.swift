@@ -12,6 +12,11 @@ class AddSpendViewController: BaseViewController {
     @IBOutlet weak var backButton: UIBarButtonItem!
     
     var viewModel: AddSpendViewModel?
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 }
 
 extension AddSpendViewController: ViewModelBindableType {

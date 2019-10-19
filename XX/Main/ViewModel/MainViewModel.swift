@@ -10,7 +10,8 @@ import UIKit
 
 class MainViewModel: BaseViewModel {
     func requestSpendDetailMoveAction() -> CocoaAction {
-        return Action { _ in
+        return Action { _ in 
+            
             let viewModel = SpendDetailViewModel(title: "지출디테일", sceneCoordinator: self.sceneCoordinator, storage: self.storage)
             let scene = MainScene.spendDetail(viewModel)
             

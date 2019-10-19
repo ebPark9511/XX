@@ -14,6 +14,12 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var addSpendMoveButton: UIButton!
     
     var viewModel: MainViewModel?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+     
 }
 
 extension MainViewController: ViewModelBindableType {

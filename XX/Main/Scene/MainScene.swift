@@ -10,7 +10,7 @@ import UIKit
 enum MainScene {
     case main(MainViewModel)
     case spendDetail(SpendDetailViewModel)
-//    case signIn(SignInViewModel)
+    case appSpend(AddSpendViewModel)
 }
 
 extension MainScene: SceneType {
@@ -30,12 +30,16 @@ extension MainScene: SceneType {
         case  .spendDetail(let viewModel):
             guard var viewController = storyboard.instantiateViewController(withIdentifier: "SpendDetailViewController") as? SpendDetailViewController else {
                 return UIViewController()
-                
             }
 
             viewController.bind(viewModel: viewModel)
+            return viewController
+        case  .appSpend(let viewModel):
+            guard var viewController = storyboard.instantiateViewController(withIdentifier: "AddSpendViewController") as? AddSpendViewController else {
+                return UIViewController()
+            }
             
-            
+            viewController.bind(viewModel: viewModel)
             return viewController
         }
     }

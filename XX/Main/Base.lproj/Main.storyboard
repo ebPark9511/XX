@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="XX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="메인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhR-RN-7Zg">
@@ -25,10 +25,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5s4-JF-EdP">
-                                <rect key="frame" x="352" y="44" width="62" height="62"/>
-                                <state key="normal" image="moreIcon"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Da-gk-hPU">
                                 <rect key="frame" x="245" y="110" width="140" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -41,14 +37,30 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5s4-JF-EdP" secondAttribute="trailing" id="I3F-2P-laY"/>
-                            <constraint firstItem="5s4-JF-EdP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hE7-XD-rSf"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KNj-bg-tao"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="KNj-bg-tao">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="gqV-29-peB">
+                            <view key="customView" contentMode="scaleToFill" id="LM8-1v-dGr">
+                                <rect key="frame" x="302" y="5.5" width="92" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moreIcon" translatesAutoresizingMaskIntoConstraints="NO" id="kU6-3K-SLP">
+                                        <rect key="frame" x="30" y="-14.5" width="62" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="62" id="MBh-Oe-kMc"/>
+                                            <constraint firstAttribute="height" constant="62" id="Xdn-Kd-yIR"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="kU6-3K-SLP" firstAttribute="trailing" secondItem="LM8-1v-dGr" secondAttribute="trailing" id="Tgt-up-8MJ"/>
+                                    <constraint firstItem="kU6-3K-SLP" firstAttribute="centerY" secondItem="LM8-1v-dGr" secondAttribute="centerY" id="sgz-ya-evp"/>
+                                </constraints>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addSpendMoveButton" destination="8mb-Jq-8ad" id="FXq-Hl-eES"/>
                         <outlet property="spendDetailMoveButton" destination="7Da-gk-hPU" id="BBa-a0-6dH"/>
@@ -58,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="2169.5652173913045" y="-206.25"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Spend View Controller-->
         <scene sceneID="SpV-hp-GFt">
             <objects>
-                <viewController id="E4u-Ft-lat" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddSpendViewController" id="E4u-Ft-lat" customClass="AddSpendViewController" customModule="XX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LXN-py-pfW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,6 +100,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="backButton" destination="zao-NJ-IKG" id="74m-eL-uPn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i39-dU-7hu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,5 +20,6 @@ extension MainViewController: ViewModelBindableType {
     func bindViewModel() {
         guard let viewModel = viewModel else { return }
         spendDetailMoveButton.rx.action = viewModel.requestSpendDetailMoveAction()
+        addSpendMoveButton.rx.action = viewModel.requestAddSpendMoveMoveAction()
     }
 }

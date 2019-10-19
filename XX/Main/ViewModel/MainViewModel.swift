@@ -23,4 +23,20 @@ class MainViewModel: BaseViewModel {
             
         }
     }
+    
+    func requestAddSpendMoveMoveAction() -> CocoaAction {
+        return Action { _ in
+            let viewModel = AddSpendViewModel(title: "추가지출", sceneCoordinator: self.sceneCoordinator, storage: self.storage)
+            let scene = MainScene.appSpend(viewModel)
+            
+            return self
+                .sceneCoordinator
+                .transition(to: scene,
+                            using: .push,
+                            animated: true)
+                .asObservable().map { _ in }
+            
+        }
+    }
 }
+

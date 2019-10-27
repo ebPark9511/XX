@@ -15,6 +15,8 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let HEADER_CELL_NAME = "MainHeaderCell"
+    let SUB_HEADER_CELL_NAME = "MainSubHeaderCell"
+    
     let CELL_NAME = "MainCell"
     
     var viewModel: MainViewModel?
@@ -39,12 +41,15 @@ extension MainViewController: ViewModelBindableType {
 
     
     private func bindCollectionView() {
-        let firstCities = ["London", "Vienna", "Lisbon", "Lisbon", "Lisbon"]
+        
+        let firstCities = ["default", "London", "Vienna", "Lisbon", "Lisbon", "Lisbon", "Lisbon", "Lisbon", "Lisbon", "Lisbon", "Lisbon", "Lisbon", "Lisbon", "Lisbon", "Lisbon", "Lisbon", "Lisbon", "Lisbon"]
 //        let secondCities = ["Paris", "Madrid", "Seoul"]
         
         let sections = [
             SectionModel<String, String>(model: "first section", items: firstCities)
         ]
+        
+        
         
         Observable.just(sections)
             .bind(to: collectionView.rx.items(dataSource: mainDatasource))
@@ -57,13 +62,18 @@ extension MainViewController: ViewModelBindableType {
     private var mainDatasource: MainDataSource {
         let configureCell: (CollectionViewSectionedDataSource<MainSectionModel>, UICollectionView, IndexPath, String) -> UICollectionViewCell = { (datasource, collectionView, indexPath,  element) in
             //            guard
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.CELL_NAME, for: indexPath)
-            //                    as? NameCell else { return UITableViewCell() }
             
-            //            cell.textLabel?.text = element
-            
-            return cell
-            
+            if indexPath.item == 0 {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.SUB_HEADER_CELL_NAME, for: indexPath)
+                return cell
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.CELL_NAME, for: indexPath)
+                //                    as? NameCell else { return UITableViewCell() }
+                
+                //            cell.textLabel?.text = element
+                
+                return cell
+            }
         }
         
         let datasource = MainDataSource.init(configureCell: configureCell)
@@ -74,6 +84,11 @@ extension MainViewController: ViewModelBindableType {
             //            header.setup()
             return header
         }
+        
+//        sizeForItemAtIndexPath
+        
+    
+
         
         return datasource
         
